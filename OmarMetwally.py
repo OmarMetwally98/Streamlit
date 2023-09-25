@@ -6,7 +6,7 @@ import plotly.express as px
 #########################################################################################################################
 
 
-data = pd.read_csv('C:\\Users\\Ahmad\\Desktop\\Airline Dataset.csv')
+data = pd.read_csv('Airline Dataset.csv')
 
 st.set_page_config(page_title = 'Omar Dashboard',
                     page_icon = 'bar_chart:',
