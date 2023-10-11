@@ -28,19 +28,26 @@ session_state = st.session_state
 # Main app
 st.title("Airline Dataset Visualization")
 
-# Create a sidebar for filters
-with st.sidebar:
-    selected_continent = st.selectbox('Select Continent:', data['Continents'].unique())
+
+
+# Sidebar for continent selection
+st.sidebar.header('Filters')
+selected_continent = st.sidebar.selectbox('Select Continent:', data['Continents'].unique())
 
 # Filter data based on the selected continent
 continent_filtered_data = data[data['Continents'] == selected_continent]
 
-# Create another filter in the sidebar for selecting a country
-with st.sidebar:
-    selected_country = st.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
+# Create another filter in the "main" section for selecting a country
+st.header(f'Selected Continent: {selected_continent}')
+selected_country = st.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
 
 # Filter data based on the selected country
 filtered_data = continent_filtered_data[continent_filtered_data['Country Name'] == selected_country]
+
+
+
+
+
 
 # Chart 1: Bar Chart - Gender Distribution
 gender_count = filtered_data['Gender'].value_counts()
