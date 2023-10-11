@@ -37,7 +37,7 @@ selected_continent = st.sidebar.selectbox('Select Continent:', data['Continents'
 # Filter data based on the selected continent
 continent_filtered_data = data[data['Continents'] == selected_continent]
 
-st.header(f'Selected Continent: {selected_continent}')
+st.sidebar.header(f'Selected Continent: {selected_continent}')
 selected_country = st.sidebar.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
 
 # Filter data based on the selected country
