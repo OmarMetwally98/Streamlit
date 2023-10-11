@@ -28,7 +28,7 @@ session_state = st.session_state
 # Main app
 st.title("Airline Dataset Visualization")
 
-selected_continent=st.selectbox('Select Continent:", data['Continents'].unique())
+selected_continent=st.selectbox('Select Continent:', data['Continents'].unique())
 continent_filtered_data = data[data['Continents'] == selected_continent]
 selected_country = st.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
 filtered_data = continent_filtered_data[continent_filtered_data['Country Name'] == selected_country]
