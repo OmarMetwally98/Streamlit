@@ -26,7 +26,7 @@ session_state = st.session_state
 
 
 # Main app
-st.title("Airline Dataset Visualization")
+st.title("Airline Dataset VisualizationXX")
 
 
 
@@ -51,6 +51,7 @@ filtered_data = continent_filtered_data[continent_filtered_data['Country Name'] 
 
 # Chart 1: Bar Chart - Gender Distribution
 gender_count = filtered_data['Gender'].value_counts()
+st.subheader("Gender Distribution by Country")
 fig1 = px.bar(gender_count, x=gender_count.index, y=gender_count.values, labels={'x':'Gender', 'y':'Count'})
 st.plotly_chart(fig1)
 st.markdown("""
