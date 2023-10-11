@@ -80,6 +80,24 @@ st.markdown("")
 st.markdown("")
 st.markdown("")
 
+# Convert the 'Departure Date' column to a datetime object
+data['Departure Date'] = pd.to_datetime(data['Departure Date'])
+
+# Create a Streamlit slider for selecting a specific month
+selected_month = st.slider("Select a Month", 1, 12, 1)  # Assuming months are represented by integers 1 to 12
+
+# Filter the data for the selected month
+filtered_data = data[data['Departure Date'].dt.month == selected_month]
+
+# Get the top nationalities for the selected month
+top_nationalities = filtered_data['Nationality'].value_counts().head(5).reset_index()
+top_nationalities.columns = ['Nationality', 'Count']
+
+# Create the Plotly pie chart
+fig = px.pie(top_nationalities, names='Nationality', values='Count', title=f'Top 5 Passenger Nationalities for Month {selected_month}')
+
+# Display the pie chart in the Streamlit app
+st.plotly_chart(fig)
 
 # Chart 3: Pie Chart - Nationality Distribution
 # Calculate the top 5 nationalities
