@@ -99,14 +99,16 @@ fig = px.pie(top_nationalities, names='Nationality', values='Count', title=f'Top
 # Display the pie chart in the Streamlit app
 st.plotly_chart(fig)
 
-# Chart 3: Pie Chart - Nationality Distribution
-# Calculate the top 5 nationalities
-top_nationalities = data['Nationality'].value_counts().head(5).reset_index()
-top_nationalities.columns = ['Nationality', 'Count']
-
 # Streamlit app
 st.title("Top 5 Passenger Nationalities")
 
 # Display the top 5 nationalities as a pie chart
 fig = px.pie(top_nationalities, names='Nationality', values='Count', title='Top 5 Passenger Nationalities')
 st.plotly_chart(fig)
+
+st.markdown("""
+- Pie chart showing the Top 5 highest passengers traveling based on their nationalities.
+- China, which has the highest population in the world, has the most passengers with Chinese nationality.
+- Indonesia has the second highest number of passengers, even though it has the fourth highest population in the world.
+- We recognized that over the fiscal year of 2022, from January till December always China, Indonesia, Russia, Philippines, and Brazil are the top 5 countries.
+""")
