@@ -51,11 +51,14 @@ st.subheader("Gender Distribution by Country")
 fig1 = px.bar(gender_count, x=gender_count.index, y=gender_count.values, labels={'x':'Gender', 'y':'Count'})
 st.plotly_chart(fig1)
 st.markdown("""
-- A bar chart showing the number of passengers in each age group, from 0 to 5 years old up to and including 90 years old and above.
-- The bar chart shows that the most common age groups for passengers are 25-30, 45-50, 55-60, 65-70, and 80-85. This is interesting because it suggests that travel is popular for people of all ages, not just young people.
-- It is also interesting to note that there is a large number of passengers who are 80 to 85 years old.
-- The fewest passengers are 90 years old and older. This is to be expected, as people in this age group are more likely to have health problems or other limitations that make travel difficult.
+- A bar chart showing the number of male and female passengers on the airline to compare which gender has more passengers.
+- The above visualization shows that approximately the same number of men and women travel on the airline, but there are slightly more male passengers.
+- There is no significant gender difference in the number of people who travel by airline. This suggests that both men and women are equally interested in traveling.
 """)
+st.markdown("")
+st.markdown("")
+st.markdown("")
+st.markdown("")
 
 # Chart 2: Histogram - Age Distribution
 # Customizing the histogram
@@ -66,6 +69,17 @@ fig2.update_traces(marker_color='#1f77b4', marker_line_color='black', marker_lin
 fig2.update_layout(showlegend=False)
 
 st.plotly_chart(fig2)
+st.markdown("""
+- A bar chart showing the number of passengers in each age group, from 0 to 5 years old up to and including 90 years old and above.
+- The bar chart shows that the most common age groups for passengers are 25-30, 45-50, 55-60, 65-70, and 80-85. This is interesting because it suggests that travel is popular for people of all ages, not just young people.
+- It is also interesting to note that there is a large number of passengers who are 80 to 85 years old.
+- The fewest passengers are 90 years old and older. This is to be expected, as people in this age group are more likely to have health problems or other limitations that make travel difficult.
+""")
+st.markdown("")
+st.markdown("")
+st.markdown("")
+st.markdown("")
+
 
 # Chart 3: Pie Chart - Nationality Distribution
 # Calculate the top 5 nationalities
