@@ -26,7 +26,7 @@ session_state = st.session_state
 
 
 # Main app
-st.title("Airline Dataset VisualizationXX")
+st.title("Airline Dataset Visualization")
 
 
 
