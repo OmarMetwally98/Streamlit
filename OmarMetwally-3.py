@@ -138,11 +138,11 @@ fig = px.choropleth(
     locationmode="country names",
     color="Delayed Flights",
     color_continuous_scale=custom_colorscale,
-    title="Number of Delayed Flights by Country",
+    
 )
 
 # Create a Streamlit app
-st.subheader("Delayed Flights Choropleth Map")
+st.subheader("Number of Delayed Flights by Country")
 st.plotly_chart(fig)
 st.markdown("""
 - Observing the global map provided, it becomes evident that the United States stands out as the country with a significantly greater number of delayed flights compared to others.
