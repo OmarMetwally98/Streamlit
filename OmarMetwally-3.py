@@ -109,7 +109,10 @@ st.markdown("""
 - We recognized that over the fiscal year of 2022, from January till December always China, Indonesia, Russia, Philippines, and Brazil are the top 5 countries.
 """)
 
-
+st.markdown("")
+st.markdown("")
+st.markdown("")
+st.markdown("")
 
 # Count the number of delayed flights by country
 delayed_count = data[data["Flight Status"] == "Delayed"].groupby("Country Name").size().reset_index()
