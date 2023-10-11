@@ -30,17 +30,16 @@ st.title("Airline Dataset Visualization")
 
 
 
-# Sidebar for filters
-st.sidebar.header('Filters')
-
 # Continent selection in the sidebar
-selected_continent = st.sidebar.selectbox('Select Continent:', data['Continents'].unique())
+with st.sidebar:
+    selected_continent = st.selectbox('Select Continent:', data['Continents'].unique())
 
 # Filter data based on the selected continent
 continent_filtered_data = data[data['Continents'] == selected_continent]
 
 # Country selection in the sidebar
-selected_country = st.sidebar.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
+with st.sidebar:
+    selected_country = st.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
 
 # Filter data based on the selected country
 filtered_data = continent_filtered_data[continent_filtered_data['Country Name'] == selected_country]
