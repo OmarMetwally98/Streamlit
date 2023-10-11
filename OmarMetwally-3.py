@@ -113,13 +113,26 @@ st.markdown("""
 delayed_count = data[data["Flight Status"] == "Delayed"].groupby("Country Name").size().reset_index()
 delayed_count.columns = ["Country Name", "Delayed Flights"]
 
+custom_colorscale = [
+    [0.0, 'blue'],
+    [0.0005, 'lightblue'],
+    [0.001, 'lightcyan'],
+    [0.08, 'lightgray'],
+    [0.15, 'lightpink'],
+    [0.3, 'lightcoral'],
+    [0.5, 'salmon'],
+    [0.75, 'orangered'],
+    [0.9, 'red'],
+    [1.0, 'darkred']
+]
+
 # Create the choropleth map
 fig = px.choropleth(
     delayed_count,
     locations="Country Name",
     locationmode="country names",
     color="Delayed Flights",
-    color_continuous_scale="Viridis",
+    color_continuous_scale=custom_colorscale,
     title="Number of Delayed Flights by Country",
 )
 
