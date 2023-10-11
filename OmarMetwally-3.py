@@ -100,12 +100,29 @@ fig = px.pie(top_nationalities, names='Nationality', values='Count', title=f'Top
 # Display the pie chart in the Streamlit app
 st.plotly_chart(fig)
 
-
-
-
 st.markdown("""
 - Pie chart showing the Top 5 highest passengers traveling based on their nationalities.
 - China, which has the highest population in the world, has the most passengers with Chinese nationality.
 - Indonesia has the second highest number of passengers, even though it has the fourth highest population in the world.
 - We recognized that over the fiscal year of 2022, from January till December always China, Indonesia, Russia, Philippines, and Brazil are the top 5 countries.
 """)
+
+
+
+# Count the number of delayed flights by country
+delayed_count = data[data["Flight Status"] == "Delayed"].groupby("Country Name").size().reset_index()
+delayed_count.columns = ["Country Name", "Delayed Flights"]
+
+# Create the choropleth map
+fig = px.choropleth(
+    delayed_count,
+    locations="Country Name",
+    locationmode="country names",
+    color="Delayed Flights",
+    color_continuous_scale="Viridis",
+    title="Number of Delayed Flights by Country",
+)
+
+# Create a Streamlit app
+st.title("Delayed Flights Choropleth Map")
+st.plotly_chart(fig)
