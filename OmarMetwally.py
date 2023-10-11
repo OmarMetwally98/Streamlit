@@ -30,27 +30,11 @@ st.title("Airline Dataset Visualization")
 
 
 
-# Continent selection in the sidebar
-with st.sidebar:
-    selected_continent = st.selectbox('Select Continent:', data['Continents'].unique())
-
-# Filter data based on the selected continent
-continent_filtered_data = data[data['Continents'] == selected_continent]
-
-# Country selection in the sidebar
-with st.sidebar:
-    selected_country = st.selectbox(f'Select Country in {selected_continent}:', continent_filtered_data['Country Name'].unique())
-
-# Filter data based on the selected country
-filtered_data = continent_filtered_data[continent_filtered_data['Country Name'] == selected_country]
-
-
-
 
 
 
 # Chart 1: Bar Chart - Gender Distribution
-gender_count = filtered_data['Gender'].value_counts()
+gender_count = data['Gender'].value_counts()
 st.subheader("Gender Distribution by Country")
 fig1 = px.bar(gender_count, x=gender_count.index, y=gender_count.values, labels={'x':'Gender', 'y':'Count'})
 st.plotly_chart(fig1)
@@ -63,7 +47,7 @@ st.markdown("""
 
 # Chart 2: Histogram - Age Distribution
 # Customizing the histogram
-fig2 = px.histogram(filtered_data, x='Age', nbins=20, title="Age Distribution by Country", labels={'Age': 'Age Range'})
+fig2 = px.histogram(data, x='Age', nbins=20, title="Age Distribution by Country", labels={'Age': 'Age Range'})
 fig2.update_xaxes(dtick=5)  # Add spacing between the bins
 fig2.update_layout(xaxis_title="Age Range", yaxis_title="Count")
 fig2.update_traces(marker_color='#1f77b4', marker_line_color='black', marker_line_width=1)
