@@ -81,6 +81,8 @@ st.markdown("")
 st.markdown("")
 st.markdown("")
 
+
+st.subheader("Top 5 Passenger Nationalities by Month")
 # Convert the 'Departure Date' column to a datetime object
 data['Departure Date'] = pd.to_datetime(data['Departure Date'])
 
@@ -95,8 +97,7 @@ top_nationalities = filtered_data['Nationality'].value_counts().head(5).reset_in
 top_nationalities.columns = ['Nationality', 'Count']
 
 # Create the Plotly pie chart
-st.subheader("Top 5 Passenger Nationalities")
-fig = px.pie(top_nationalities, names='Nationality', values='Count', title=f'Top 5 Passenger Nationalities for Month {selected_month}')
+fig = px.pie(top_nationalities, names='Nationality', values='Count')
 
 # Display the pie chart in the Streamlit app
 st.plotly_chart(fig)
