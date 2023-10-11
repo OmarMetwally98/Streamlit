@@ -62,12 +62,12 @@ st.markdown("")
 
 # Chart 2: Histogram - Age Distribution
 # Customizing the histogram
-fig2 = px.histogram(filtered_data, x='Age', nbins=20, title="Age Distribution by Country", labels={'Age': 'Age Range'})
+fig2 = px.histogram(filtered_data, x='Age', nbins=20, labels={'Age': 'Age Range'})
 fig2.update_xaxes(dtick=5)  # Add spacing between the bins
 fig2.update_layout(xaxis_title="Age Range", yaxis_title="Count")
 fig2.update_traces(marker_color='#1f77b4', marker_line_color='black', marker_line_width=1)
 fig2.update_layout(showlegend=False)
-
+st.title("Age Distribution by Country")
 st.plotly_chart(fig2)
 st.markdown("""
 - A bar chart showing the number of passengers in each age group, from 0 to 5 years old up to and including 90 years old and above.
@@ -94,17 +94,14 @@ top_nationalities = filtered_data['Nationality'].value_counts().head(5).reset_in
 top_nationalities.columns = ['Nationality', 'Count']
 
 # Create the Plotly pie chart
+st.title("Top 5 Passenger Nationalities")
 fig = px.pie(top_nationalities, names='Nationality', values='Count', title=f'Top 5 Passenger Nationalities for Month {selected_month}')
 
 # Display the pie chart in the Streamlit app
 st.plotly_chart(fig)
 
-# Streamlit app
-st.title("Top 5 Passenger Nationalities")
 
-# Display the top 5 nationalities as a pie chart
-fig = px.pie(top_nationalities, names='Nationality', values='Count', title='Top 5 Passenger Nationalities')
-st.plotly_chart(fig)
+
 
 st.markdown("""
 - Pie chart showing the Top 5 highest passengers traveling based on their nationalities.
