@@ -27,7 +27,7 @@ session_state = st.session_state
 
 # Main app
 st.markdown("<h1 style='text-align: Left; font-size: 100; color: #F63366;'>Airline Dataset Visualization</h1>", unsafe_allow_html=True)
-st.title("Airline Dataset Visualization")
+#st.title("Airline Dataset Visualization")
 
 # Continent selection in the sidebar
 with st.sidebar:
